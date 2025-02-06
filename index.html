@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Component Demo</title>
+    <script src='Button.js' type="module"></script>
+</head>
+<body>
+
+    <h1>There is a button here:</h1>    
+
+    <my-button label='Hi I am a button!'></my-button>
+    <my-button label='Oh Hey. Also a button.'></my-button>
+
+    <h3>It's a web component.</h3>
+
+    This simple script and form will allow you to change the label:
+    <script>
+        const setLabel = (ev)=>{
+            let valueElement = document.querySelector("#newvalue");
+            let newValue = valueElement.value;
+            document.querySelector("my-button").setAttribute("label", newValue);
+            valueElement.value = "";
+        }
+    </script>
+    <form action="#" onsubmit="setLabel()">
+        <input type='text' id='newvalue' placeholder="New Value...">
+        <button>Set Component Label</button>
+    </form>
+</body>
+</html>
